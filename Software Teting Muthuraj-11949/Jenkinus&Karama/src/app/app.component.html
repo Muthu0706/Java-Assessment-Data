@@ -1,0 +1,167 @@
+<!--heading window-->
+<div class="top">
+    <h4>Doctor Management System</h4>
+  </div>
+  <table class="table table-striped">
+    <tr class="row">
+      <!--left window-->
+      <td class="col-8">
+  
+        <form [formGroup]="myForm" id="Form">
+          <div class="inputs">
+  
+            <div class="input-group flex-nowrap" style="margin-top: 20%;width: 50%;margin-left: 20%;">
+              <span class="input-group-text" id="addon-wrapping" style="width: 150px;">Doctor Id</span>
+              <input type="text" class="form-control" aria-describedby="addon-wrapping" formControlName="dId" name="id">
+  
+  
+              <div *ngIf="myForm.get('dId')!.touched && myForm.get('dId')!.invalid">
+                <div *ngIf="myForm.get('dId')!.hasError('required')">
+  
+                  <font color="red" style="margin-left: 20%;">Doctor ID is Required</font>
+                </div>
+                <div *ngIf="myForm.get('dId')!.hasError('pattern')">
+  
+                  <font color="red">Invalid Doctor ID </font>
+                </div>
+              </div>
+  
+            </div>
+  
+            <div class="input-group flex-nowrap" style="width: 50%;margin-left: 20%;margin-top: 1%;">
+              <span class="input-group-text" id="addon-wrapping" style="width: 150px;">Doctor Name</span>
+              <input type="text" class="form-control" aria-describedby="addon-wrapping" formControlName="dName" name="name">
+              <br>
+              <div *ngIf="myForm.get('dName')!.touched && myForm.get('dName')!.invalid">
+                <div *ngIf="myForm.get('dName')!.hasError('required')">
+                  <font color="red">Doctor Name is Required</font>
+                </div>
+                <div *ngIf="myForm.get('dName')!.hasError('pattern')">
+                  <font color="red">Invalid Doctor Name </font>
+                </div>
+              </div>
+  
+            </div>
+  
+            <div class="input-group flex-nowrap" style="width: 50%;margin-left: 20%;margin-top: 1%;">
+              <span class="input-group-text" id="addon-wrapping" style="width: 150px;">Doctor age</span>
+              <input type="text" class="form-control" aria-describedby="addon-wrapping" formControlName="dAge" name="age">
+              <br>
+              <div *ngIf="myForm.get('dAge')!.touched && myForm.get('dAge')!.invalid">
+                <div *ngIf="myForm.get('dAge')!.hasError('required')">
+                  <font color="red">Doc age is Required</font>
+                </div>
+                <div *ngIf="myForm.get('dAge')!.hasError('pattern')">
+                  <font color="red">Invalid Doc age Format </font>
+                </div>
+              </div>
+            </div>
+
+            <div class="input-group flex-nowrap" style="width: 50%;margin-left: 20%;margin-top: 1%;">
+                <span class="input-group-text" id="addon-wrapping" style="width: 150px;">Doctor Email</span>
+                <input type="text" class="form-control" aria-describedby="addon-wrapping" formControlName="dEmail" name="email">
+                <br>
+                <div *ngIf="myForm.get('dEmail')!.touched && myForm.get('dEmail')!.invalid">
+                  <div *ngIf="myForm.get('dEmail')!.hasError('required')">
+                    <font color="red">Doc Email is Required</font>
+                  </div>
+                  <div *ngIf="myForm.get('dEmail')!.hasError('pattern')">
+                    <font color="red">Invalid Email age Format </font>
+                  </div>
+                </div>
+              </div>
+
+              <div class="input-group flex-nowrap" style="width: 50%;margin-left: 20%;margin-top: 1%;">
+                <span class="input-group-text" id="addon-wrapping" style="width: 150px;">Doctor Specialization</span>
+                <input type="text" class="form-control" aria-describedby="addon-wrapping" formControlName="dSpecialization" name="spl">
+                <br>
+                <div *ngIf="myForm.get('dSpecialization')!.touched && myForm.get('dSpecialization')!.invalid">
+                  <div *ngIf="myForm.get('dSpecialization')!.hasError('required')">
+                    <font color="red">Doc Specialization is Required</font>
+                  </div>
+                  <div *ngIf="myForm.get('dSpecialization')!.hasError('pattern')">
+                    <font color="red">Invalid Specialization age Format </font>
+                  </div>
+                </div>
+              </div>
+              <div class="input-group flex-nowrap" style="width: 50%;margin-left: 20%;margin-top: 1%;">
+                <span class="input-group-text" id="addon-wrapping" style="width: 150px;">Doctor Phno</span>
+                <input type="text" class="form-control" aria-describedby="addon-wrapping" formControlName="dPhno" name="phn">
+                <br>
+                <div *ngIf="myForm.get('dPhno')!.touched && myForm.get('dPhno')!.invalid">
+                  <div *ngIf="myForm.get('dPhno')!.hasError('required')">
+                    <font color="red">Doc dPhno is Required</font>
+                  </div>
+                  <div *ngIf="myForm.get('dPhno')!.hasError('pattern')">
+                    <font color="red">Invalid dPhno age Format </font>
+                  </div>
+                </div>
+              </div>
+
+              <div class="input-group flex-nowrap" style="width: 50%;margin-left: 20%;margin-top: 1%;">
+                <span class="input-group-text" id="addon-wrapping" style="width: 150px;">Doctor Location</span>
+                <input type="text" class="form-control" aria-describedby="addon-wrapping" formControlName="dLocation" name="loc">
+                <br>
+                <div *ngIf="myForm.get('dLocation')!.touched && myForm.get('dLocation')!.invalid">
+                  <div *ngIf="myForm.get('dLocation')!.hasError('required')">
+                    <font color="red">Doc Location is Required</font>
+                  </div>
+                  <div *ngIf="myForm.get('dLocation')!.hasError('pattern')">
+                    <font color="red">Invalid Location age Format </font>
+                  </div>
+                </div>
+              </div>
+            <br>
+  
+            <button class="btn btn-success" style="margin-left: 30%;" (click)="InsertDoctor(myForm.value)"
+              [disabled]="myForm.invalid" value="Insert">Insert</button>
+            <button class="btn btn-danger" style="margin: 2%;" (click)="DeleteDoctor(myForm.value)"
+              [disabled]="myForm.invalid" value="Delete">Delete</button>
+            <button class="btn btn-primary" (click)="UpdateDoctor(myForm.value)"
+              [disabled]="myForm.invalid" value="Update">Update</button>
+  
+            <div *ngIf=" flag_insert">
+              <div class="alert alert-success" role="alert" style="width: 50%; text-align: center;margin-left: 20%;">
+                {{result}}
+              </div>
+            </div>
+  
+  
+            <div *ngIf="flag_del">
+              <div class="alert alert-danger" role="alert" style="width: 50%; text-align: center;margin-left: 20%;">
+                &#9888;{{result}}
+              </div>
+            </div>
+  
+            <div *ngIf="flag_update">
+              <div class="alert alert-primary" role="alert" style="width: 50%; text-align: center;margin-left: 20%;">
+                {{result}}
+              </div>
+            </div>
+          </div>
+          <br>
+        </form>
+      </td>
+      <!--right window-->
+      <td class="col-12" value="getallResult">
+        <div class="right">Result :
+          <br><br>
+          <ul>
+            <a *ngFor="let doc of docList" >
+              <table id="tableid" class="table table-striped">
+                <tr class="row">
+                  <td id="td"  class="col-1" style="text-align: justify;">{{doc.dId}}</td>
+                  <td id="td" class="col-1" style="text-align: justify;">{{doc.dName}}</td>
+                  <td id="td" class="col-1" style="text-align: justify;">{{doc.dAge}}</td>
+                  <td id="td" class="col-2" style="text-align: justify;"> {{doc.dEmail}}</td>
+                  <td id="td" class="col-2" style="text-align: justify;">{{doc.dSpecialization}}</td>
+                  <td id="td" class="col-1" style="text-align: justify;">{{doc.dPhno}}</td>
+                  <td id="td" class="col-1" style="text-align: justify;">{{doc.dLocation}}</td>
+                </tr>
+              </table>
+            </a>
+          </ul>
+        </div>
+      </td>
+    </tr>
+  </table>
